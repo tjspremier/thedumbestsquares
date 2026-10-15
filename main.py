@@ -43,8 +43,9 @@ class Idiot:
             this.training[key][movedir] += 1
         else:
             this.training[key][movedir] -= 1
-            for i in range(4):
-                this.training[key][i] += 1
+            if this.training[key][movedir] == 0:
+                for i in range(4):
+                    this.training[key][i] += 1
         if this.get_rect().colliderect(goal.get_rect()):
             this.finished = True
     def get_rect(this):
